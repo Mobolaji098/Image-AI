@@ -115,10 +115,16 @@ export const download = (url: string, filename: string) => {
     throw new Error("Resource URL not provided! You need to provide one");
   }
 
+
   fetch(url)
     .then((response) => response.blob())
     .then((blob) => {
+
+
       const blobURL = URL.createObjectURL(blob);
+
+    
+
       const a = document.createElement("a");
       a.href = blobURL;
 
@@ -132,7 +138,8 @@ export const download = (url: string, filename: string) => {
 
 // DEEP MERGE OBJECTS
 export const deepMergeObjects = (obj1: any, obj2: any) => {
-  if(obj2 === null || obj2 === undefined) {
+
+  if (obj2 === null || obj2 === undefined) {
     return obj1;
   }
 
@@ -152,6 +159,5 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
       }
     }
   }
-
   return output;
 };
